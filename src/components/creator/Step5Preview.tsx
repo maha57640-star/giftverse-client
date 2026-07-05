@@ -12,8 +12,8 @@ type Props = {
   };
 };
 
-const API_URL = "http://10.10.11.152:5000";
-const WEBSITE_URL = "http://10.10.11.152:5173";
+const API_URL = "https://giftverse-backend2.onrender.com";
+const WEBSITE_URL = "https://giftverse-client.vercel.app/";
 
 export default function Step5Preview({ giftData }: Props) {
   const [loading, setLoading] = useState(false);

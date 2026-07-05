@@ -16,7 +16,7 @@ export default function GiftView() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://10.10.11.152:5173/view/${id}`).then((res) => {
+    axios.get(`https://giftverse-client.vercel.app/view/${id}`).then((res) => {
       setGift(res.data);
 
       // small delay for reveal animation
@@ -60,7 +60,7 @@ export default function GiftView() {
             {gift.photos.map((p, i) => (
               <img
                 key={i}
-                src={`http://10.10.11.152:5173/view/${p}`}
+                src={`https://giftverse-client.vercel.app/view/${p}`}
                 className="rounded-lg h-32 w-full object-cover"
               />
             ))}

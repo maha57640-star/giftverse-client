@@ -34,16 +34,16 @@ export default function Viewer() {
     const loadGift = async () => {
       try {
         const res = await axios.get(
-          `http://10.10.11.152:5000/gift/${id}`
+          `https://giftverse-backend2.onrender.com/gift/${id}`
         );
 
         const data: Gift = {
           ...res.data,
           photos: res.data.photos.map(
-            (p: string) => `http://10.10.11.152:5000${p}`
+            (p: string) => `https://giftverse-backend2.onrender.com${p}`
           ),
           music: res.data.music
-            ? `http://10.10.11.152:5000${res.data.music}`
+            ? `https://giftverse-backend2.onrender.com${res.data.music}`
             : "",
         };
 

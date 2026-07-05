@@ -13,7 +13,7 @@ type Props = {
 };
 
 const API_URL = "https://giftverse-backend2.onrender.com";
-const WEBSITE_URL = "https://giftverse-client.vercel.app/";
+const WEBSITE_URL = "https://giftverse-client.vercel.app";
 
 export default function Step5Preview({ giftData }: Props) {
   const [loading, setLoading] = useState(false);
@@ -60,8 +60,8 @@ export default function Step5Preview({ giftData }: Props) {
 
       setGiftId(res.data._id);
     } catch (error) {
-      console.error(error);
-      alert("Failed to create gift");
+      console.error("Create Gift Error:", error);
+      alert("Failed to create gift.");
     } finally {
       setLoading(false);
     }
@@ -154,7 +154,7 @@ export default function Step5Preview({ giftData }: Props) {
           </h2>
 
           <p className="mt-3 text-purple-200">
-            Scan the QR code to open your gift.
+            Scan the QR code or use the link below.
           </p>
 
           <div className="mt-8 flex justify-center">
@@ -163,9 +163,21 @@ export default function Step5Preview({ giftData }: Props) {
             </div>
           </div>
 
-          <p className="mt-6 break-all text-sm text-gray-300">
-            {shareUrl}
-          </p>
+          <div className="mt-6">
+            <p className="break-all text-sm text-gray-300">
+              {shareUrl}
+            </p>
+
+            <button
+              className="mt-4 rounded-lg bg-green-600 px-5 py-2 hover:bg-green-700"
+              onClick={() => {
+                navigator.clipboard.writeText(shareUrl);
+                alert("Link copied!");
+              }}
+            >
+              📋 Copy Link
+            </button>
+          </div>
         </div>
       )}
     </div>
